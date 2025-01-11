@@ -8,9 +8,16 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteControllerTest do
   end
 
   describe "index" do
-    test "lists all world_heritage_sites", %{conn: conn} do
-      conn = get(conn, ~p"/api/world_heritage_sites")
-      assert json_response(conn, 200)["data"] == []
+    test "paginates all world_heritage_sites", %{conn: conn} do
+      world_heritage_site_fixture()
+      world_heritage_site_fixture()
+      world_heritage_site_fixture()
+
+      conn = get(conn, ~p"/api/world_heritage_sites?page=1")
+      assert length(json_response(conn, 200)["data"]) == 3
+
+      conn = get(conn, ~p"/api/world_heritage_sites?page=2")
+      assert length(json_response(conn, 200)["data"]) == 0
     end
   end
 

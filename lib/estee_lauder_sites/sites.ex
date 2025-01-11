@@ -21,6 +21,12 @@ defmodule EsteeLauderSites.Sites do
     Repo.all(WorldHeritageSite)
   end
 
+  def paginate_world_heritage_sites(page, limit \\ 100) do
+    offset = limit * page - 100
+    Repo.all(from w in WorldHeritageSite, limit: ^limit, offset: ^offset)
+  end
+
+
   @doc """
   Gets a single world_heritage_site.
 

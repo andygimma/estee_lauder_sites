@@ -5,8 +5,8 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteController do
 
   action_fallback EsteeLauderSitesWeb.FallbackController
 
-  def index(conn, _params) do
-    world_heritage_sites = Sites.list_world_heritage_sites()
+  def index(conn, %{"page" => page}) do
+    world_heritage_sites = page |> String.to_integer() |> Sites.paginate_world_heritage_sites()
     render(conn, :index, world_heritage_sites: world_heritage_sites)
   end
 
