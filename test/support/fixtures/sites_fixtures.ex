@@ -4,6 +4,9 @@ defmodule EsteeLauderSites.SitesFixtures do
   entities via the `EsteeLauderSites.Sites` context.
   """
 
+  alias EsteeLauderSites.Repo
+  alias EsteeLauderSites.Sites.WorldHeritageSite
+
   @doc """
   Generate a unique world_heritage_site unique_number.
   """
@@ -12,10 +15,8 @@ defmodule EsteeLauderSites.SitesFixtures do
   @doc """
   Generate a world_heritage_site.
   """
-  def world_heritage_site_fixture(attrs \\ %{}) do
-    {:ok, world_heritage_site} =
-      attrs
-      |> Enum.into(%{
+  def world_heritage_site_fixture() do
+    attrs = %{
         area_hectares: 120.5,
         c1: 42,
         c2: 42,
@@ -65,9 +66,10 @@ defmodule EsteeLauderSites.SitesFixtures do
         transboundary: 42,
         udnp_code: "some udnp_code",
         unique_number: unique_world_heritage_site_unique_number()
-      })
-      |> EsteeLauderSites.Sites.create_world_heritage_site()
+      }
 
-    world_heritage_site
+      %WorldHeritageSite{}
+      |> WorldHeritageSite.changeset(attrs)
+      |> Repo.insert!()
   end
 end
