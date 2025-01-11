@@ -10,6 +10,15 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteController do
     render(conn, :index, world_heritage_sites: world_heritage_sites)
   end
 
+  def show(conn, %{"id" => id, "locale" => locale}) do
+    world_heritage_site_by_locale = Sites.get_world_heritage_site!(id, locale)
+
+    render(conn, :show_by_locale,
+      world_heritage_site_by_locale: world_heritage_site_by_locale,
+      locale: locale
+    )
+  end
+
   def show(conn, %{"id" => id}) do
     world_heritage_site = Sites.get_world_heritage_site!(id)
     render(conn, :show, world_heritage_site: world_heritage_site)

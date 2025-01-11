@@ -10,7 +10,8 @@ defmodule EsteeLauderSites.Application do
     children = [
       EsteeLauderSitesWeb.Telemetry,
       EsteeLauderSites.Repo,
-      {DNSCluster, query: Application.get_env(:estee_lauder_sites, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:estee_lauder_sites, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: EsteeLauderSites.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: EsteeLauderSites.Finch},
