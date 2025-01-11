@@ -7,6 +7,7 @@ defmodule EsteeLauderSitesWeb.Router do
 
   scope "/api", EsteeLauderSitesWeb do
     pipe_through :api
+    resources "/world_heritage_sites", WorldHeritageSiteController
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
