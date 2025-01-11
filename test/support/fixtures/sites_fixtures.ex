@@ -15,8 +15,9 @@ defmodule EsteeLauderSites.SitesFixtures do
   @doc """
   Generate a world_heritage_site.
   """
-  def world_heritage_site_fixture() do
-    attrs = %{
+  def world_heritage_site_fixture(attrs \\ %{}) do
+    merged_attrs = attrs
+    |> Enum.into(%{
       area_hectares: 120.5,
       c1: 42,
       c2: 42,
@@ -66,10 +67,10 @@ defmodule EsteeLauderSites.SitesFixtures do
       transboundary: 42,
       udnp_code: "some udnp_code",
       unique_number: unique_world_heritage_site_unique_number()
-    }
+    })
 
     %WorldHeritageSite{}
-    |> WorldHeritageSite.changeset(attrs)
+    |> WorldHeritageSite.changeset(merged_attrs)
     |> Repo.insert!()
   end
 end

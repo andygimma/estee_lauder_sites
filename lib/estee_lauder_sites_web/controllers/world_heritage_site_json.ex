@@ -16,6 +16,13 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
   end
 
   @doc """
+  Renders a list of world_heritage_sites suitable for mapping. Includes only a few fields, including latitude and longitude.
+  """
+  def map(%{world_heritage_sites: world_heritage_sites}) do
+    %{data: for(world_heritage_site <- world_heritage_sites, do: data_for_maps(world_heritage_site))}
+  end
+
+  @doc """
   Renders a single world_heritage_site by locale.
   """
   def show_by_locale(%{
@@ -297,6 +304,15 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
       transboundary: world_heritage_site.transboundary
+    }
+  end
+
+  defp data_for_maps(world_heritage_site) do
+    %{
+      id: world_heritage_site.id,
+      unique_number: world_heritage_site.unique_number,
+      longitude: world_heritage_site.longitude,
+      latitude: world_heritage_site.latitude,
     }
   end
 end

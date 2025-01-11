@@ -21,6 +21,24 @@ defmodule EsteeLauderSites.Sites do
     Repo.all(WorldHeritageSite)
   end
 
+  def list_world_heritage_sites_for_maps do
+    Repo.all(from w in WorldHeritageSite, where: not is_nil(w.longitude) and not is_nil(w.latitude), select: %{
+      id: w.id,
+      unique_number: w.unique_number,
+      latitude: w.latitude,
+      longitude: w.longitude
+    })
+  end
+
+  @doc """
+  Returns the list of world_heritage_sites by page.
+
+  ## Examples
+
+      iex> list_world_heritage_sites()
+      [%WorldHeritageSite{}, ...]
+
+  """
   def paginate_world_heritage_sites(page, limit \\ 100) do
     offset = limit * page - 100
     Repo.all(from w in WorldHeritageSite, limit: ^limit, offset: ^offset)

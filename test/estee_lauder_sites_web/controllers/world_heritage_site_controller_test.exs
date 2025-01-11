@@ -64,4 +64,15 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteControllerTest do
       assert json_response(conn, 200)["data"]["name_zh"] == "some name_zh"
     end
   end
+
+  describe "map" do
+    test "returns all world_heritage_sites for maps", %{conn: conn} do
+      world_heritage_site_fixture()
+      world_heritage_site_fixture()
+      world_heritage_site_fixture(%{latitude: nil, longitude: nil})
+
+      conn = get(conn, ~p"/api/world_heritage_sites/map")
+      assert length(json_response(conn, 200)["data"]) == 2
+    end
+  end
 end
