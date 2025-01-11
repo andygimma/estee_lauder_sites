@@ -60,7 +60,7 @@ defmodule EsteeLauderSites.Sites.WorldHeritageSite do
   def changeset(world_heritage_site, attrs) do
     world_heritage_site
     |> cast(attrs, [:unique_number, :id_no, :rev_bis, :name_en, :name_fr, :name_es, :name_ru, :name_ar, :name_zh, :short_description_en, :short_description_fr, :short_description_es, :short_description_ru, :short_description_ar, :short_description_zh, :justification_en, :justification_fr, :date_inscribed, :secondary_dates, :danger, :date_end, :danger_list, :longitude, :latitude, :area_hectares, :c1, :c2, :c3, :c4, :c5, :c6, :n7, :n8, :n9, :n10, :criteria_txt, :category, :category_short, :states_name_en, :states_name_fr, :states_name_es, :states_name_ru, :states_name_ar, :states_name_zh, :region_en, :region_fr, :iso_code, :udnp_code, :transboundary])
-    |> validate_required([:unique_number, :id_no, :rev_bis, :name_en, :name_fr, :name_es, :name_ru, :name_ar, :name_zh, :short_description_en, :short_description_fr, :short_description_es, :short_description_ru, :short_description_ar, :short_description_zh, :justification_en, :justification_fr, :date_inscribed, :secondary_dates, :danger, :date_end, :danger_list, :longitude, :latitude, :area_hectares, :c1, :c2, :c3, :c4, :c5, :c6, :n7, :n8, :n9, :n10, :criteria_txt, :category, :category_short, :states_name_en, :states_name_fr, :states_name_es, :states_name_ru, :states_name_ar, :states_name_zh, :region_en, :region_fr, :iso_code, :udnp_code, :transboundary])
+    |> validate_required([:unique_number, :id_no])
     |> unique_constraint(:unique_number)
   end
 end
