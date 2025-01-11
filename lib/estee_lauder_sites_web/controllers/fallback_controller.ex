@@ -18,7 +18,7 @@ defmodule EsteeLauderSitesWeb.FallbackController do
   def call(conn, {:error, :not_found}) do
     conn
     |> put_status(:not_found)
-    |> put_view(html: EsteeLauderSitesWeb.ErrorHTML, json: EsteeLauderSitesWeb.ErrorJSON)
+    |> put_view(json: EsteeLauderSitesWeb.ErrorJSON)
     |> render(:"404")
   end
 end
