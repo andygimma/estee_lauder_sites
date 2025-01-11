@@ -9,7 +9,7 @@ defmodule EsteeLauderSites.Sites do
   alias EsteeLauderSites.Sites.WorldHeritageSite
 
   @doc """
-  Returns the list of world_heritage_sites.
+  Returns the list of world_heritage_sites with map coordinates and ids.
 
   ## Examples
 
@@ -17,10 +17,6 @@ defmodule EsteeLauderSites.Sites do
       [%WorldHeritageSite{}, ...]
 
   """
-  def list_world_heritage_sites do
-    Repo.all(WorldHeritageSite)
-  end
-
   def list_world_heritage_sites_for_maps do
     Repo.all(from w in WorldHeritageSite, where: not is_nil(w.longitude) and not is_nil(w.latitude), select: %{
       id: w.id,
