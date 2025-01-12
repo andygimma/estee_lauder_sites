@@ -46,7 +46,8 @@ defmodule EsteeLauderSites.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       {:csv, "~> 3.2"},
-      {:cachex, "~> 3.3"}
+      {:cachex, "~> 3.3"},
+      {:faker, "~> 0.17"}
     ]
   end
 
