@@ -2,6 +2,10 @@ alias EsteeLauderSites.Sites.WorldHeritageSite
 alias EsteeLauderSites.Repo
 
 defmodule Mix.Tasks.WorldHeritageSitesUpload do
+  @moduledoc """
+  Uploads the World Heritage Sites data from the CSV file.
+  """
+
   use Mix.Task
 
   @shortdoc "Simply calls the Hello.say/0 function."

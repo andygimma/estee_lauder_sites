@@ -1,4 +1,7 @@
 defmodule EsteeLauderSites.Sites.WorldHeritageSite do
+  @moduledoc """
+  The World Heritage Site schema.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

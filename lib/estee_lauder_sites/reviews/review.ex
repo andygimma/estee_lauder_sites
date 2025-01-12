@@ -1,4 +1,7 @@
 defmodule EsteeLauderSites.Reviews.Review do
+  @moduledoc """
+  The Review schema.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

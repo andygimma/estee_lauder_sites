@@ -332,7 +332,7 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
         id: review.id,
         rating: review.rating,
         content: review.content,
-        inserted_at: review.inserted_at,
+        inserted_at: review.inserted_at
       }
     end)
   end

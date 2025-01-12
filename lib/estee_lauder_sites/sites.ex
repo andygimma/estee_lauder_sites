@@ -53,7 +53,11 @@ defmodule EsteeLauderSites.Sites do
     case Cachex.get(:world_heritage_sites, "index:#{page}") do
       {:ok, nil} ->
         offset = limit * page - 100
-        places = Repo.all(from w in WorldHeritageSite, limit: ^limit, offset: ^offset) |> Repo.preload(:reviews)
+
+        places =
+          Repo.all(from w in WorldHeritageSite, limit: ^limit, offset: ^offset)
+          |> Repo.preload(:reviews)
+
         Cachex.put(:world_heritage_sites, "index:#{page}", places)
         places
 
@@ -248,6 +252,7 @@ defmodule EsteeLauderSites.Sites do
               }
           )
           |> Repo.preload(reviews: from(r in Review, where: r.locale == "es"))
+
         Cachex.put(:world_heritage_sites, "#{id}:es", place)
         place
 
