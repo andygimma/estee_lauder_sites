@@ -18,7 +18,8 @@ defmodule EsteeLauderSites.Application do
       # Start a worker by calling: EsteeLauderSites.Worker.start_link(arg)
       # {EsteeLauderSites.Worker, arg},
       # Start to serve requests, typically the last entry
-      EsteeLauderSitesWeb.Endpoint
+      EsteeLauderSitesWeb.Endpoint,
+      {Cachex, name: :world_heritage_sites}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
