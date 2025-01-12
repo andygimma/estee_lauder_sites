@@ -47,7 +47,8 @@ defmodule EsteeLauderSites.MixProject do
       {:bandit, "~> 1.2"},
       {:csv, "~> 3.2"},
       {:cachex, "~> 3.3"},
-      {:faker, "~> 0.17"}
+      {:faker, "~> 0.17"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 

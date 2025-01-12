@@ -17,7 +17,7 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteControllerTest do
       assert length(json_response(conn, 200)["data"]) == 3
 
       conn = get(conn, ~p"/api/world_heritage_sites?page=2")
-      assert length(json_response(conn, 200)["data"]) == 0
+      assert Enum.empty?(json_response(conn, 200)["data"])
     end
   end
 
