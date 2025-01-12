@@ -19,7 +19,7 @@ defmodule EsteeLauderSites.Application do
       # {EsteeLauderSites.Worker, arg},
       # Start to serve requests, typically the last entry
       EsteeLauderSitesWeb.Endpoint,
-      {Cachex, name: :world_heritage_sites}
+      {Cachex, name: :world_heritage_sites, options: [ttl: :timer.hours(24 * 30)]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
