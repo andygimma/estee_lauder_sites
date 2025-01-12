@@ -5,7 +5,7 @@ defmodule EsteeLauderSites.Sites do
 
   import Ecto.Query, warn: false
   alias EsteeLauderSites.Repo
-
+  alias EsteeLauderSites.Reviews.Review
   alias EsteeLauderSites.Sites.WorldHeritageSite
 
   @doc """
@@ -109,7 +109,7 @@ defmodule EsteeLauderSites.Sites do
           Repo.one(
             from w in WorldHeritageSite,
               where: w.id == ^id,
-              select: %{
+              select_merge: %{
                 id: w.id,
                 unique_number: w.unique_number,
                 id_no: w.id_no,
@@ -143,6 +143,7 @@ defmodule EsteeLauderSites.Sites do
                 transboundary: w.transboundary
               }
           )
+          |> Repo.preload(reviews: from(r in Review, where: r.locale == "ar"))
 
         Cachex.put(:world_heritage_sites, "#{id}:ar", place)
         place
@@ -159,7 +160,7 @@ defmodule EsteeLauderSites.Sites do
           Repo.one(
             from w in WorldHeritageSite,
               where: w.id == ^id,
-              select: %{
+              select_merge: %{
                 id: w.id,
                 unique_number: w.unique_number,
                 id_no: w.id_no,
@@ -195,6 +196,7 @@ defmodule EsteeLauderSites.Sites do
                 justification_en: w.justification_en
               }
           )
+          |> Repo.preload(reviews: from(r in Review, where: r.locale == "en"))
 
         Cachex.put(:world_heritage_sites, "#{id}:en", place)
         place
@@ -211,7 +213,7 @@ defmodule EsteeLauderSites.Sites do
           Repo.one(
             from w in WorldHeritageSite,
               where: w.id == ^id,
-              select: %{
+              select_merge: %{
                 id: w.id,
                 unique_number: w.unique_number,
                 id_no: w.id_no,
@@ -245,7 +247,7 @@ defmodule EsteeLauderSites.Sites do
                 transboundary: w.transboundary
               }
           )
-
+          |> Repo.preload(reviews: from(r in Review, where: r.locale == "es"))
         Cachex.put(:world_heritage_sites, "#{id}:es", place)
         place
 
@@ -261,7 +263,7 @@ defmodule EsteeLauderSites.Sites do
           Repo.one(
             from w in WorldHeritageSite,
               where: w.id == ^id,
-              select: %{
+              select_merge: %{
                 id: w.id,
                 unique_number: w.unique_number,
                 id_no: w.id_no,
@@ -297,6 +299,7 @@ defmodule EsteeLauderSites.Sites do
                 justification_fr: w.justification_fr
               }
           )
+          |> Repo.preload(reviews: from(r in Review, where: r.locale == "fr"))
 
         Cachex.put(:world_heritage_sites, "#{id}:fr", place)
         place
@@ -313,7 +316,7 @@ defmodule EsteeLauderSites.Sites do
           Repo.one(
             from w in WorldHeritageSite,
               where: w.id == ^id,
-              select: %{
+              select_merge: %{
                 id: w.id,
                 unique_number: w.unique_number,
                 id_no: w.id_no,
@@ -347,6 +350,7 @@ defmodule EsteeLauderSites.Sites do
                 transboundary: w.transboundary
               }
           )
+          |> Repo.preload(reviews: from(r in Review, where: r.locale == "ru"))
 
         Cachex.put(:world_heritage_sites, "#{id}:ru", place)
         place
@@ -363,7 +367,7 @@ defmodule EsteeLauderSites.Sites do
           Repo.one(
             from w in WorldHeritageSite,
               where: w.id == ^id,
-              select: %{
+              select_merge: %{
                 id: w.id,
                 unique_number: w.unique_number,
                 id_no: w.id_no,
@@ -397,6 +401,7 @@ defmodule EsteeLauderSites.Sites do
                 transboundary: w.transboundary
               }
           )
+          |> Repo.preload(reviews: from(r in Review, where: r.locale == "zh"))
 
         Cachex.put(:world_heritage_sites, "#{id}:zh", place)
         place

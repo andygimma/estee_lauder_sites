@@ -35,7 +35,7 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
     %{data: data_by_locale(world_heritage_site_by_locale, locale)}
   end
 
-  defp data_by_locale(world_heritage_site, "ar") do
+  defp data_by_locale(%WorldHeritageSite{} = world_heritage_site, "ar") do
     %{
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
@@ -67,11 +67,12 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       states_name_ar: world_heritage_site.states_name_ar,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 
-  defp data_by_locale(world_heritage_site, "en") do
+  defp data_by_locale(%WorldHeritageSite{} = world_heritage_site, "en") do
     %{
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
@@ -105,11 +106,12 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       region_en: world_heritage_site.region_en,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 
-  defp data_by_locale(world_heritage_site, "es") do
+  defp data_by_locale(%WorldHeritageSite{} = world_heritage_site, "es") do
     %{
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
@@ -141,11 +143,12 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       states_name_es: world_heritage_site.states_name_es,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 
-  defp data_by_locale(world_heritage_site, "fr") do
+  defp data_by_locale(%WorldHeritageSite{} = world_heritage_site, "fr") do
     %{
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
@@ -179,11 +182,12 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       region_fr: world_heritage_site.region_fr,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 
-  defp data_by_locale(world_heritage_site, "ru") do
+  defp data_by_locale(%WorldHeritageSite{} = world_heritage_site, "ru") do
     %{
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
@@ -215,11 +219,12 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       states_name_ru: world_heritage_site.states_name_ru,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 
-  defp data_by_locale(world_heritage_site, "zh") do
+  defp data_by_locale(%WorldHeritageSite{} = world_heritage_site, "zh") do
     %{
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
@@ -251,7 +256,8 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       states_name_zh: world_heritage_site.states_name_zh,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 

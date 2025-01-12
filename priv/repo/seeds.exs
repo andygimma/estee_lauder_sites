@@ -9,8 +9,6 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-import Faker
-
 alias EsteeLauderSites.Repo
 alias EsteeLauderSites.Reviews.Review
 alias EsteeLauderSites.Sites.WorldHeritageSite
@@ -24,6 +22,7 @@ Repo.all(WorldHeritageSite)
       world_heritage_site_id: site.id,
       rating: Enum.random(1..5),
       content: Faker.Lorem.sentence(),
+      locale: Enum.random(["ar", "en", "es", "fr", "ru", "zh"])
     }
     |> Repo.insert!()
   end)

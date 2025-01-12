@@ -5,6 +5,7 @@ defmodule EsteeLauderSites.Reviews.Review do
   schema "reviews" do
     field :content, :string
     field :rating, :integer
+    field :locale, :string, default: "en"
 
     belongs_to :world_heritage_site, EsteeLauderSites.Sites.WorldHeritageSite
 
@@ -15,7 +16,7 @@ defmodule EsteeLauderSites.Reviews.Review do
   def changeset(review, attrs) do
     review
     |> cast(attrs, [:content, :rating])
-    |> validate_required([:content, :rating])
+    |> validate_required([:content, :locale, :rating])
     |> validate_inclusion(:rating, 1..5)
   end
 end
