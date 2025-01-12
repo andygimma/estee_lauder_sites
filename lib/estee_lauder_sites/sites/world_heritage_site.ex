@@ -53,6 +53,8 @@ defmodule EsteeLauderSites.Sites.WorldHeritageSite do
     field :n10, :integer
     field :iso_code, :string
 
+    has_many :reviews, EsteeLauderSites.Reviews.Review
+
     timestamps(type: :utc_datetime)
   end
 

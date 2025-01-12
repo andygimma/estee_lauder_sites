@@ -28,5 +28,4 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteController do
     world_heritage_sites = Sites.list_world_heritage_sites_for_maps()
     render(conn, :map, world_heritage_sites: world_heritage_sites)
   end
-
 end

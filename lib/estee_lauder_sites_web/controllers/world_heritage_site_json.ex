@@ -19,7 +19,10 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
   Renders a list of world_heritage_sites suitable for mapping. Includes only a few fields, including latitude and longitude.
   """
   def map(%{world_heritage_sites: world_heritage_sites}) do
-    %{data: for(world_heritage_site <- world_heritage_sites, do: data_for_maps(world_heritage_site))}
+    %{
+      data:
+        for(world_heritage_site <- world_heritage_sites, do: data_for_maps(world_heritage_site))
+    }
   end
 
   @doc """
@@ -303,7 +306,8 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       region_fr: world_heritage_site.region_fr,
       iso_code: world_heritage_site.iso_code,
       udnp_code: world_heritage_site.udnp_code,
-      transboundary: world_heritage_site.transboundary
+      transboundary: world_heritage_site.transboundary,
+      reviews: render_reviews(world_heritage_site.reviews)
     }
   end
 
@@ -312,7 +316,18 @@ defmodule EsteeLauderSitesWeb.WorldHeritageSiteJSON do
       id: world_heritage_site.id,
       unique_number: world_heritage_site.unique_number,
       longitude: world_heritage_site.longitude,
-      latitude: world_heritage_site.latitude,
+      latitude: world_heritage_site.latitude
     }
+  end
+
+  defp render_reviews(reviews) do
+    Enum.map(reviews, fn review ->
+      %{
+        id: review.id,
+        rating: review.rating,
+        content: review.content,
+        inserted_at: review.inserted_at,
+      }
+    end)
   end
 end
