@@ -9,19 +9,6 @@ defmodule EsteeLauderSites.Reviews do
   alias EsteeLauderSites.Reviews.Review
 
   @doc """
-  Returns the list of reviews.
-
-  ## Examples
-
-      iex> list_reviews()
-      [%Review{}, ...]
-
-  """
-  def list_reviews do
-    Repo.all(Review)
-  end
-
-  @doc """
   Gets a single review.
 
   Raises `Ecto.NoResultsError` if the Review does not exist.

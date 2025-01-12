@@ -10,11 +10,6 @@ defmodule EsteeLauderSites.ReviewsTest do
 
     @invalid_attrs %{content: nil, rating: nil}
 
-    test "list_reviews/0 returns all reviews" do
-      review = review_fixture()
-      assert Reviews.list_reviews() == [review]
-    end
-
     test "get_review!/1 returns the review with given id" do
       review = review_fixture()
       assert Reviews.get_review!(review.id) == review

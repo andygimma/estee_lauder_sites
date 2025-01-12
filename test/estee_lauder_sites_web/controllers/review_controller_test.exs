@@ -19,13 +19,6 @@ defmodule EsteeLauderSitesWeb.ReviewControllerTest do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
   end
 
-  describe "index" do
-    test "lists all reviews", %{conn: conn} do
-      conn = get(conn, ~p"/api/reviews")
-      assert json_response(conn, 200)["data"] == []
-    end
-  end
-
   describe "create review" do
     test "renders review when data is valid", %{conn: conn} do
       conn = post(conn, ~p"/api/reviews", review: @create_attrs)
