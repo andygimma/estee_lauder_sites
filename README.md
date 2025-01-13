@@ -23,6 +23,16 @@ And if you'd like to contribute open a PR.
 
 Good luck and enjoy exploring these sites!
 
+## Set up
+
+### Upload World Heritage Sites csv to the database
+
+`mix world_heritage_sites_upload`
+
+### Add Reviews to World Heritage Sites
+
+`mix run priv/repo/seeds.exs`
+
 ## API Usage
 
 ### World Heritage Sites
