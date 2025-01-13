@@ -8,7 +8,7 @@ defmodule Mix.Tasks.WorldHeritageSitesUpload do
 
   use Mix.Task
 
-  @shortdoc "Simply calls the Hello.say/0 function."
+  @shortdoc "Uploads data from CSV to the database"
   def run(_) do
     Mix.Task.run("app.start")
 
