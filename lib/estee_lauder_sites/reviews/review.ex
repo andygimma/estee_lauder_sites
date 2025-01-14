@@ -18,7 +18,7 @@ defmodule EsteeLauderSites.Reviews.Review do
   @doc false
   def changeset(review, attrs) do
     review
-    |> cast(attrs, [:content, :rating])
+    |> cast(attrs, [:content, :rating, :locale])
     |> validate_required([:content, :locale, :rating])
     |> validate_inclusion(:rating, 1..5)
   end
