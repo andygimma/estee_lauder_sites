@@ -8,7 +8,7 @@ defmodule EsteeLauderSites.ReviewsTest do
 
     import EsteeLauderSites.ReviewsFixtures
 
-    @invalid_attrs %{content: nil, rating: nil}
+    @invalid_attrs %{content: nil, rating: nil, locale: nil}
 
     test "get_review!/1 returns the review with given id" do
       review = review_fixture()
@@ -16,11 +16,12 @@ defmodule EsteeLauderSites.ReviewsTest do
     end
 
     test "create_review/1 with valid data creates a review" do
-      valid_attrs = %{content: "some content", rating: 4}
+      valid_attrs = %{content: "some content", rating: 4, locale: "ar"}
 
       assert {:ok, %Review{} = review} = Reviews.create_review(valid_attrs)
       assert review.content == "some content"
       assert review.rating == 4
+      assert review.locale == "ar"
     end
 
     test "create_review/1 with invalid data returns error changeset" do
@@ -29,11 +30,12 @@ defmodule EsteeLauderSites.ReviewsTest do
 
     test "update_review/2 with valid data updates the review" do
       review = review_fixture()
-      update_attrs = %{content: "some updated content", rating: 5}
+      update_attrs = %{content: "some updated content", rating: 5, locale: "fr"}
 
       assert {:ok, %Review{} = review} = Reviews.update_review(review, update_attrs)
       assert review.content == "some updated content"
       assert review.rating == 5
+      assert review.locale == "fr"
     end
 
     test "update_review/2 with invalid data returns error changeset" do

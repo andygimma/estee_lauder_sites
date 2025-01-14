@@ -19,7 +19,8 @@ defmodule EsteeLauderSitesWeb.ReviewJSON do
     %{
       id: review.id,
       content: review.content,
-      rating: review.rating
+      rating: review.rating,
+      locale: review.locale
     }
   end
 end

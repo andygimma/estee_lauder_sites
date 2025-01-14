@@ -12,7 +12,8 @@ defmodule EsteeLauderSites.ReviewsFixtures do
       attrs
       |> Enum.into(%{
         content: "some content",
-        rating: 3
+        rating: 3,
+        locale: "ar"
       })
       |> EsteeLauderSites.Reviews.create_review()
 
